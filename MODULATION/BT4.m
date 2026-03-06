@@ -1,0 +1,12 @@
+fa = 150; wa = 2*pi*fa;
+fc = 2000; wc = 2*pi*fc;
+fs = 16*2048;
+tiv = 1/fs;
+t = 0:tiv:(0.045-tiv);
+MD = 1;
+A = MD*cos(wa*t);
+y = A.*cos(wc*t);
+plot(t,y,'k');
+axis([0 0.045 -2 2]);
+xlabel('second');
+title('amplitude modulation of sine signal');
