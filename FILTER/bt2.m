@@ -1,0 +1,12 @@
+h_n = [4, 1, 3, 2, 1, 8, 5, 3, 2, 1, 4];
+M = length(h_n); n = 0:M-1;
+[Hr, w, c, L] = Hr_Type3(h_n);
+cmax = max(c)+1; cmin = min(c)-1;
+subplot(2,2,1); stem(n,h_n); axis([-1 2*L+1 cmin cmax]);
+xlabel("n"); ylabel("h(n)"); title("Impulse Response");
+subplot(2,2,2); plot(w/pi,Hr); grid on;
+xlabel("frequency in pi unit"); ylabel("Hr");
+subplot(2,2,3); stem(0:L,c); axis([-1 2*L+1 cmin cmax]);
+xlabel("n"); ylabel("c(n)"); title("c(n) coefficients");
+title("Type 3 Amplitude Response");
+subplot(2,2,4); sys = tf(h_n, 1); pzplot(sys);

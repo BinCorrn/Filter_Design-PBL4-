@@ -1,0 +1,11 @@
+h_n = ones(1,11);
+n = -5:1:5;
+subplot(1,2,1); stem(n,h_n,'k'); 
+axis([-4 4 0 1.2]); title("h(n)");
+H1 = real(fft(h_n,512));Hf = H1/max(H1);
+w = -pi:(2*pi/511):pi;
+subplot(1,2,2); plot(w,fftshift(Hf),'k');
+axis([-pi pi -0.3 1]); title("H(w)");
+xlabel('Nomalized frequency');
+hold on;
+plot([-pi pi],[0 0], '--k');

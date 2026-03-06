@@ -1,0 +1,20 @@
+wp = 0.5*pi;
+ws = 0.8*pi;
+Rp = 0.3;  
+As = 50;   
+
+tr_width = ws-wp;
+M = ceil(6.6*pi/tr_width) +1;
+n = 0:1:(M-1);
+wc = (ws+wp)/2;
+alpha = (M-1)/2;
+m = n - alpha + eps;
+hd = sin(wc*m)/(pi*m);
+w_ham = (hamming(M))';
+h = hd.*w_ham;
+[H,w] = freqz(h,[1],1000,"whole");
+H = (H(1:1:501))'; w = (w(1:1:501))';
+mag = abs(H);
+db = 20*log10((mag+eps)/max(mag));
+pha = angle(H); 
+pha = unwr
