@@ -19,7 +19,7 @@ title('Tín hiệu Digital sau lấy mẫu');
 xlabel('Time (s)');
 ylabel('Amplitude');
 
-Fc_low = 250;  % Tần số cắt 500 Hz
+Fc_low = 250;
 [b_low, a_low] = butter(4, Fc_low/(Fs_digital/2), 'low');
 digital_low = filter(b_low, a_low, digital_signal);
 
@@ -38,3 +38,4 @@ plot(t, analog_high);
 title('Tín hiệu Analog sau lọc thông cao (Fc = 1000Hz)');
 xlabel('Time (s)');
 ylabel('Amplitude');
+
